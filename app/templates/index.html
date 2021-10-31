@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title>KIMNEWS</title>
-        {% endif %}
-    </head>
-    <body>
+{% extends 'base.html'%}
+{% block content %}
         <h3> Popular NEWS</h3>
          <ul>
             {% for article in articles %}
@@ -16,5 +7,4 @@
                 <img src="{{ article.urlToImage }}" alt="">
             {% endfor %}
         </ul>
-    </body>
-</html>
+{% endblock%}
