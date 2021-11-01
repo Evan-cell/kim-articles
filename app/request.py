@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from .model import News
+from .model import News,Sources
 
 
 # Getting api key
@@ -49,8 +49,55 @@ def process_results(news_list):
 
         
         news_object = News(title,description,urlToImage,content,publishedAt)
-        print(news_object)
+        #print(news_object)
         news_results.append(news_object)
         # print(news_results)
 
     return news_results
+#sources
+def get_sources():
+    '''
+    Function that gets the json response to our url request
+    '''
+    # get_news_url = base_url.format(api_key)
+    get_sources_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey=91a623008e664b6bb43be5edc7dfa6ec'
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
+        
+
+        sources_results = None
+        
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
+            # print(news_results_list)
+            sources_results = process_results(sources_results_list)
+           
+
+
+    return sources_results
+def process_results(sources_list):
+    '''
+    Function  that processes the movie result and transform them to a list of Objects
+
+    Args:
+        news_list: A list of dictionaries that contain news details
+
+    Returns :
+        news_results: A list of news objects
+    '''
+    sources_results = []
+    for sources_item in sources_list:
+        name = sources_item.get('name')
+        description = sources_item.get('description')
+        url = sources_item.get('url')
+       
+
+        
+        sources_object = Sources(name,description,url)
+        #print(sources_object)
+        sources_results.append(sources_object)
+        # print(news_results)
+
+    return sources_results
