@@ -2,6 +2,7 @@
 NB if articles dont show use this link https://kimse-news.herokuapp.com/
 # Author
 Evan kimani
+https://kimse-news.herokuapp.com/
 
 # Description
 This project is a Flask application that consumes the News API and displays real time articles from major media stations all over the world. 
