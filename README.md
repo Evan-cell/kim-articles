@@ -1,5 +1,5 @@
 # Latest News
-NB if articles dont show use this link https://kimse-news.herokuapp.com/
+NB if articles dont show use this link [https://kimse-news.herokuapp.com/]
 # Author
 Evan kimani
 https://kimse-news.herokuapp.com/
